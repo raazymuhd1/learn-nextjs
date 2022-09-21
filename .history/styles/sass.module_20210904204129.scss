@@ -1,0 +1,47 @@
+@mixin images($circle: false) {
+    border-radius: 10px;
+    box-shadow: 2px 3px 4px #333, -2px -3px 4px #333 ;
+    outline: none;
+
+    @if $circle {
+        border-radius: 50%;
+    }
+}
+
+@mixin bgMode( $dark: false ) {
+       @if $dark {
+           background: #000;
+       } @else {
+           background: #fff;
+       }
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    .square {
+        @include images($circle: false)
+    }
+    
+    .circle {
+        @include images($circle: true)
+    }
+
+    .light {
+        color: #333;
+        letter-spacing: 0.1rem;
+        font-style: italic;
+        font-weight: 600;
+    }
+
+    .dark {
+        @extend .light;
+        color: #fff;
+        background: #333;
+    }
+
+}

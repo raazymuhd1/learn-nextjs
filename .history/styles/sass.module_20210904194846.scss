@@ -1,0 +1,19 @@
+@mixin images($circle: false) {
+    border-radius: 10px;
+
+    @if $circle {
+        border-radius: 50%;
+    }
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    .image {
+        @include images($circle: true)
+    }
+}

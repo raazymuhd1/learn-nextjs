@@ -1,0 +1,25 @@
+@mixin images($circle: false) {
+    border-radius: 10px;
+    box-shadow: 2px 3px 8px #333, -2px -3px 8px blueviolet ;
+    outline: none;
+
+    @if $circle {
+        border-radius: 50%;
+    }
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+
+    .square {
+        @include images($circle: true)
+    }
+    
+    .circle {
+        @include images($circle: false)
+    }
+}
